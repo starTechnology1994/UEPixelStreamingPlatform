@@ -83,24 +83,26 @@ NebulaRender 是一套**基于 Unreal Engine Pixel Streaming 的云渲染运营�
 
 ## 部署形态
 
-平台由**后台服务器**、**渲染服务器**与\*\*媒体转发（可选）\*\*三部分组成，分别交付 **Windows** 与 **Linux** 两种离线包：
+平台由**后台服务器**、**渲染服务器**与**媒体转发（可选）**三部分组成，分别交付 **Windows** 与 **Linux** 两种离线包：
 
 - 解压即用，包内自带运行环境，无需手工安装依赖；
 - 后台服务器与渲染服务器可同机部署，也可拆分到多台横向扩容；
 - 支持内网离线运行，数据保留在客户服务器本地。
 
-按 [快速开始](wiki/快速开始.md) 操作即可完成部署并跑通第一个应用。
+按 [快速开始](https://github.com/starTechnology1994/UEPixelStreamingPlatform/wiki/快速开始) 操作即可完成部署并跑通第一个应用。
 
 *NebulaRender — 让 UE 像素流送真正可用、可管、可运营。*
 
 ## 使用文档
 
-- [使用手册（Wiki 首页）](wiki/README.md)
-- [快速开始](wiki/快速开始.md)
-- [功能介绍](wiki/功能介绍.md)
-- [部署与运维](wiki/部署与运维.md)
-- [数据库与国产化](wiki/数据库与国产化.md)
-- [授权与购买（授权方案）](wiki/商业授权.md)
+完整使用文档已迁移至 GitHub Wiki：
+
+- [使用手册（Wiki 首页）](https://github.com/starTechnology1994/UEPixelStreamingPlatform/wiki)
+- [快速开始](https://github.com/starTechnology1994/UEPixelStreamingPlatform/wiki/快速开始)
+- [功能介绍](https://github.com/starTechnology1994/UEPixelStreamingPlatform/wiki/功能介绍)
+- [部署与运维](https://github.com/starTechnology1994/UEPixelStreamingPlatform/wiki/部署与运维)
+- [数据库与国产化](https://github.com/starTechnology1994/UEPixelStreamingPlatform/wiki/数据库与国产化)
+- [授权与购买](https://github.com/starTechnology1994/UEPixelStreamingPlatform/wiki/商业授权)
 
 ## 联系我们
 
