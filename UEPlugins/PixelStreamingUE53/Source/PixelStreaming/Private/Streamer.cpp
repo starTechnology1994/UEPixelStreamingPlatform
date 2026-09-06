@@ -594,7 +594,24 @@ namespace UE::PixelStreaming
 				{
 					PlayerContext->DataChannel->SendMessage(FPixelStreamingInputProtocol::FromStreamerProtocol.Find("VideoEncoderAvgQP")->GetID(), FString::FromInt((int)StatValue));
 				}
+				return;
 			}
+
+			// SFU + simulcast 场景下，outbound-rtp 统计以 rid（如 simulcast1）作为 PlayerId，
+			// 上面按真实玩家 id 找不到（Players 中只有 SFU 连接和各浏览器玩家）。
+			// 该编码流被所有经 SFU 连接的浏览器共享，平均 QP 对每个浏览器相同，
+			// 这里将平均 QP 广播给各浏览器玩家（跳过 SFU 连接自身，避免发到其控制通道）。
+			const FString QPString = FString::FromInt((int)StatValue);
+			Players.Apply([this, PlayerId, QPString](FPixelStreamingPlayerId CurPlayerId, FPlayerContext& PlayerContext) {
+				if (CurPlayerId == PlayerId || CurPlayerId == SFUPlayerId)
+				{
+					return;
+				}
+				if (PlayerContext.DataChannel)
+				{
+					PlayerContext.DataChannel->SendMessage(FPixelStreamingInputProtocol::FromStreamerProtocol.Find("VideoEncoderAvgQP")->GetID(), QPString);
+				}
+			});
 		}
 	}
 
